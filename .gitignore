@@ -1,2 +1,3 @@
 config.toml
 vendor/
+gorm.db
