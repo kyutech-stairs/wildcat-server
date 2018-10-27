@@ -1,13 +1,14 @@
 package config
 
 import (
-	"fmt"
+	_ "fmt"
 	"github.com/BurntSushi/toml"
 	"github.com/ChimeraCoder/anaconda"
 )
 
 type Config struct {
 	TwitterApiKeys `toml:"twitterApiKeys"`
+	HashTagNames   []string `toml:"hashtagNames"`
 }
 
 type TwitterApiKeys struct {
@@ -17,18 +18,19 @@ type TwitterApiKeys struct {
 	AccessSecret   string `toml:"accessSecret"`
 }
 
-func GetTwitterApi() *anaconda.TwitterApi {
-	var config Config
-	_, err := toml.DecodeFile("../config/config.toml", &config)
-	if err != nil {
+func GetConfig() *Config {
+	var config *Config
+	if _, err := toml.DecodeFile("config/config.toml", &config); err != nil {
 		panic(err)
 	}
+	return config
+}
+
+func (config *Config) GetTwitterApi() *anaconda.TwitterApi {
 	consumerKey := config.ConsumerKey
-	consumerSecret := config.TwitterApiKeys.ConsumerSecret
-	accessToken := config.TwitterApiKeys.AccessToken
-	accessSecret := config.TwitterApiKeys.AccessSecret
-	fmt.Printf("Consumer Key: %s\n", consumerKey)
-	fmt.Printf("Consumer Secret Key: %s\n", consumerSecret)
+	consumerSecret := config.ConsumerSecret
+	accessToken := config.AccessToken
+	accessSecret := config.AccessSecret
 
 	anaconda.SetConsumerKey(consumerKey)
 	anaconda.SetConsumerSecret(consumerSecret)

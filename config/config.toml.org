@@ -1,0 +1,8 @@
+hashtagNames = ["TAG NAME"]
+
+[twitterApiKeys]
+    consumerKey = "YOUR CONSUMER KEY"
+    consumerSecret = "YOUR CONSUMER SECRET"
+    accessToken = "YOUR ACCESS TOKEN"
+    accessSecret = "YOUR ACCESS SECRET"
+
