@@ -1,6 +1,6 @@
 package models
 
-import "github.com/kyutech-stairs/wildcat-server/services"
+import "github.com/kyutech-stairs/wildcat-server/models/services"
 
 // Create ImageInfoをCreate
 func (imageInfo *ImageInfo) Create() (*ImageInfo, error) {
