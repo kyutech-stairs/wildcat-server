@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/kyutech-stairs/wildcat-server/config"
 	"net/url"
 )
 
 func main() {
-	Hello()
-	api := GetTwitterApi()
+	api := config.GetTwitterApi()
 	v := url.Values{}
 	v.Set("count", "10")
 
