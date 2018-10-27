@@ -10,10 +10,10 @@ func main() {
 	db := models.GetDBConn()
 
 	// Migrate
-	db.DropTableIfExists(&models.TweetImage{})
+	db.DropTableIfExists(&models.TweetInfo{})
 	db.DropTableIfExists(&models.ImageInfo{})
 
-	db.CreateTable(&models.TweetImage{})
+	db.CreateTable(&models.TweetInfo{})
 	db.CreateTable(&models.ImageInfo{})
 
 }

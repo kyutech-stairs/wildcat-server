@@ -6,14 +6,15 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-type TweetImage struct {
+type TweetInfo struct {
 	gorm.Model
 	Images ImageInfos
 }
 
 type ImageInfo struct {
 	gorm.Model
-	ImageURL string `gorm:"not null"`
+	TweetInfoID uint
+	ImageURL    string `gorm:"not null"`
 }
 
 type ImageInfos []ImageInfo
