@@ -31,7 +31,9 @@ func main() {
 			for _, media := range tweet.ExtendedEntities.Media {
 				if media.Type == "photo" {
 					imageURL := media.Media_url
-					imageInfos = append(imageInfos, models.ImageInfo{ImageURL: imageURL})
+					if !models.ImageInfoIsRetweeted(imageURL) {
+						imageInfos = append(imageInfos, models.ImageInfo{ImageURL: imageURL})
+					}
 				}
 			}
 			tweetInfo.Images = imageInfos
