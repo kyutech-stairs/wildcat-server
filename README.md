@@ -21,5 +21,13 @@ $ go run tweet_img_getter/main.go // get data from twitter
 $ go run main.go // activate server
 ```
 
+## こだわった点
+デザインアーキテクチャとしてMVCを採用しました
+今回の場合APIサーバーのため利用者側から見たモデルのインターフェースとして
+ServiceというものをVの部分においたためMVSかもしれません。
+
+Router -> Controller -> Model -> Controller -> Service
+
+の流れになります。
 
 
