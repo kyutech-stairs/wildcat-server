@@ -14,7 +14,7 @@ func main() {
 	config := config.GetConfig()
 	api := config.GetTwitterApi()
 	v := url.Values{}
-	v.Set("count", "500")
+	v.Set("count", "300")
 
 	for _, hashtagName := range config.HashTagNames {
 		result, err := api.GetSearch(hashtagName, nil)
@@ -30,7 +30,6 @@ func main() {
 
 			// json, _ := json.Marshal(tweet)
 			// log.Println("TWEET_DATA:  ", string(json))
-			log.Println("TWEET_TEXT: ", tweet.Text)
 			for _, media := range tweet.ExtendedEntities.Media {
 				if media.Type == "photo" {
 					imageURL := media.Media_url
