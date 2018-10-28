@@ -8,5 +8,5 @@ import (
 func apiRouter(api *gin.RouterGroup) {
 
 	// Images
-	api.GET("/images/", controllers.GetOffsetImageInfos)
+	api.GET("/images", controllers.GetOffsetImageInfos)
 }
